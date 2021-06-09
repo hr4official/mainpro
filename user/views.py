@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .forms import CreateUserForm
@@ -7,7 +8,8 @@ from django.contrib.auth import login as django_login
 
 from django.contrib.auth import authenticate
 def homepage(request):
-    return render(request,"homepage.html")
+    users = User.objects.all()
+    return render(request,"homepage.html",{'users':users})
 
 def registration(request):
     form = CreateUserForm()

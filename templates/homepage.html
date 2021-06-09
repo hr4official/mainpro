@@ -8,7 +8,30 @@
 </head>
 <body>
     <a href="login">Login</a>
+    <header>
+
+    </header>
     <h1> Home Page</h1>
+    {% for users in users %}
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
+        <div class="card-body">
+           < <h1>Username: -{{users.username}}</h1>
+          
+         
+        </div>
+      </div>
+           
+   {% endfor %}
+    <footer><nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav></footer>
 
 </body>
 </html>
