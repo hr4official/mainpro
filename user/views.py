@@ -1,7 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
 from .forms import CreateUserForm
+from django.contrib.auth import login as django_login
 
 from django.contrib.auth import authenticate
 def homepage(request):
@@ -31,7 +33,7 @@ def login(request):
         user = authenticate(request, username=username , password=password)
         
         if user is not None:
-            login(request,user)
+            django_login(request,user)
             return redirect('homepage')
         else:
             messages.info(request,'username or password is wrong')
